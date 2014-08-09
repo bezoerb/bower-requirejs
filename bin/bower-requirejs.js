@@ -15,18 +15,25 @@ var opts = nopt({
   exclude: Array,
   'base-url': path,
   baseUrl: path, // alias for --base-url
-  transitive: Boolean
+  transitive: Boolean,
+  'dev-dependencies': Boolean,
+  devDependencies: Boolean // alias for --dev-dependencies)
 }, {
   h: '--help',
   v: '--version',
   c: '--config',
   e: '--exclude',
   b: '--base-url',
-  t: '--transitive'
+  t: '--transitive',
+  d: '--dev-dependencies'
 });
 
 if (opts['base-url']) {
   opts.baseUrl = opts['base-url'];
+}
+
+if (opts.hasOwnProperty('dev-dependencies')) {
+  opts.devDependencies = opts['dev-dependencies'];
 }
 
 function init() {
@@ -38,12 +45,13 @@ function help() {
     'Usage: bower-requirejs [options]',
     '',
     'General options:',
-    '  -h, --help           # Print options and usage',
-    '  -v, --version        # Print the version number',
-    '  -c, --config         # Path to your RequireJS config file',
-    '  -e, --exclude        # Name of a dependency to be excluded from the process',
-    '  -b, --base-url        # Path which all dependencies will be relative to',
-    '  -t, --transitive     # Process transitive dependencies',
+    '  -h, --help              # Print options and usage',
+    '  -v, --version           # Print the version number',
+    '  -c, --config            # Path to your RequireJS config file',
+    '  -e, --exclude           # Name of a dependency to be excluded from the process',
+    '  -b, --base-url          # Path which all dependencies will be relative to',
+    '  -t, --transitive        # Process transitive dependencies',
+    '  -d, --dev-dependencies  # Process dev-dependencies',
     ''
   ];
 
