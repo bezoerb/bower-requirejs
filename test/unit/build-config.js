@@ -133,7 +133,7 @@ describe('buildConfig', function () {
 
     dependencyGraph.pkgMeta.devDependencies = {c: '*'};
 
-    var actual = buildConfig(dependencyGraph, {baseUrl: baseUrl, transitive: true, devDependencies: false});
+    var actual = buildConfig(dependencyGraph, {baseUrl: baseUrl, transitive: true, 'exclude-dev': true});
 
     var expected = {
       paths: {

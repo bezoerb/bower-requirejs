@@ -40,14 +40,14 @@ describe('bin', function () {
         '-b', 'bar',
         '-e', 'baz',
         '-t',
-        '-d'
+        '-ed'
       ];
       require('../../bin/bower-requirejs');
       this.mockOpts.config.should.eql(path.join(process.cwd(), 'foo'));
       this.mockOpts.baseUrl.should.eql(path.join(process.cwd(), 'bar'));
       this.mockOpts.exclude.should.eql(['baz']);
       this.mockOpts.transitive.should.eql(true);
-      this.mockOpts.devDependencies.should.eql(true);
+      this.mockOpts['exclude-dev'].should.eql(true);
     });
 
     it('should alias base-url', function () {
@@ -83,29 +83,16 @@ describe('bin', function () {
         'node',
         path.join(__dirname, '../../', pkg.bin['bower-requirejs']),
         '-c', 'foo',
-        '--devDependencies',
+        '--exclude-dev',
         '-e', 'baz'
       ];
       require('../../bin/bower-requirejs');
       this.mockOpts.config.should.eql(path.join(process.cwd(), 'foo'));
-      this.mockOpts.devDependencies.should.eql(true);
+      this.mockOpts['exclude-dev'].should.eql(true);
       this.mockOpts.exclude.should.eql(['baz']);
     });
 
-    it('should alias dev-dependencies', function () {
-      mockery.resetCache();
-      process.argv = [
-        'node',
-        path.join(__dirname, '../../', pkg.bin['bower-requirejs']),
-        '-c', 'foo',
-        '--no-dev-dependencies',
-        '-e', 'baz'
-      ];
-      require('../../bin/bower-requirejs');
-      this.mockOpts.config.should.eql(path.join(process.cwd(), 'foo'));
-      this.mockOpts.devDependencies.should.eql(false);
-      this.mockOpts.exclude.should.eql(['baz']);
-    });
+
 
   });
 

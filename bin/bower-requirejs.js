@@ -16,8 +16,7 @@ var opts = nopt({
   'base-url': path,
   baseUrl: path, // alias for --base-url
   transitive: Boolean,
-  'dev-dependencies': Boolean,
-  devDependencies: Boolean // alias for --dev-dependencies)
+  'exclude-dev': Boolean
 }, {
   h: '--help',
   v: '--version',
@@ -25,15 +24,11 @@ var opts = nopt({
   e: '--exclude',
   b: '--base-url',
   t: '--transitive',
-  d: '--dev-dependencies'
+  ed: '--exclude-dev'
 });
 
 if (opts['base-url']) {
   opts.baseUrl = opts['base-url'];
-}
-
-if (opts.hasOwnProperty('dev-dependencies')) {
-  opts.devDependencies = opts['dev-dependencies'];
 }
 
 function init() {
@@ -51,7 +46,7 @@ function help() {
     '  -e, --exclude           # Name of a dependency to be excluded from the process',
     '  -b, --base-url          # Path which all dependencies will be relative to',
     '  -t, --transitive        # Process transitive dependencies',
-    '  -d, --dev-dependencies  # Process dev-dependencies',
+    '  -ed, --exclude-dev      # Exclude devDependencies',
     ''
   ];
 

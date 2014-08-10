@@ -26,7 +26,7 @@ $ npm install --save bower-requirejs
 -e, --exclude           # Name of a dependency to be excluded from the process'
 -b, --base-url          # Path which all dependencies will be relative to'
 -t, --transitive        # Process transitive dependencies'
--d, --devDependencies   # Process dev-dependencies'
+-ed, --exclude-dev      # Exclude devDependencies'
 ```
 
 
@@ -78,9 +78,9 @@ For example, say we explicitly have an entry in our bower config for module ```m
 
 Each transitive dependency is only included once, even if the dependency is used multiple times.
 
-### Dev-dependency option
+### exclude-dev option
 
-If the dev-dependency option is set to ```false```, then dev-dependencies will not be added to the require config.
+If the `exclude-dev` option is set to ```true```, then dev-dependencies will not be added to the require config.
 
 
 ### RequireJS component
