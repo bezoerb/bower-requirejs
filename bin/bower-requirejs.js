@@ -24,7 +24,7 @@ var opts = nopt({
   e: '--exclude',
   b: '--base-url',
   t: '--transitive',
-  ed: '--exclude-dev'
+  d: '--exclude-dev'
 });
 
 if (opts['base-url']) {
@@ -46,7 +46,7 @@ function help() {
     '  -e, --exclude           # Name of a dependency to be excluded from the process',
     '  -b, --base-url          # Path which all dependencies will be relative to',
     '  -t, --transitive        # Process transitive dependencies',
-    '  -ed, --exclude-dev      # Exclude devDependencies',
+    '  -d, --exclude-dev       # Exclude devDependencies',
     ''
   ];
 

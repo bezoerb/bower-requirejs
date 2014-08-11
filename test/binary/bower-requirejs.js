@@ -40,7 +40,7 @@ describe('bin', function () {
         '-b', 'bar',
         '-e', 'baz',
         '-t',
-        '-ed'
+        '-d'
       ];
       require('../../bin/bower-requirejs');
       this.mockOpts.config.should.eql(path.join(process.cwd(), 'foo'));

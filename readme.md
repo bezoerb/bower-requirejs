@@ -26,7 +26,7 @@ $ npm install --save bower-requirejs
 -e, --exclude           # Name of a dependency to be excluded from the process'
 -b, --base-url          # Path which all dependencies will be relative to'
 -t, --transitive        # Process transitive dependencies'
--ed, --exclude-dev      # Exclude devDependencies'
+-d, --exclude-dev       # Exclude devDependencies'
 ```
 
 
